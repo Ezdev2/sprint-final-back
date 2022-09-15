@@ -18,18 +18,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
 
-    @Column(length = 50, nullable = false)
+    @Column(nullable = false)
     private  String userName;
 
     @Column(nullable = false)
-    private String firstName;
-
-    private String lastName;
+    private String password;
 
     @Column(nullable = false)
-    private String passWord;
-
-    @Column(nullable = false)
-    private String profilImage;
+    private String profilAvatar;
 
 }

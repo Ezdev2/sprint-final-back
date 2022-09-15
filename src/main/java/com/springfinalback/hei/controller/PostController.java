@@ -18,6 +18,11 @@ public class PostController {
         return postService.getPosts();
     }
 
+    @GetMapping("/posts/{idUser}")
+    public Post getPostsByIdUser(@PathVariable Long idUser){
+        return postService.getPostsByIdUser(idUser);
+    }
+
     @PutMapping(path="/posts/{idUser}")
     public Post addNewPost(@PathVariable Long idUser, @RequestBody Post post){
         Post postList = postService.addPostByIdUser(idUser);

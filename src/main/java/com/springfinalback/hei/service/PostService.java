@@ -20,6 +20,12 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public Post getPostsByIdUser(Long idUser){
+        Post post = postRepository.findById(idUser)
+                .orElseThrow(()->new RuntimeException("Transaction with id "+ idUser +" does not exists"));
+        return post;
+    }
+
     public Post savePost(Post post){
         Post postContent = postRepository.save(post);
         return postContent;

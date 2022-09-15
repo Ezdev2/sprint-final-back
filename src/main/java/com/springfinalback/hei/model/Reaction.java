@@ -16,8 +16,6 @@ public class Reaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long IdReaction;
 
-    private int reacting;
-
     @ManyToOne
     private  Post post;
 
