@@ -1,5 +1,6 @@
 package com.springfinalback.hei.service;
 
+import com.springfinalback.hei.model.Friend;
 import com.springfinalback.hei.model.Post;
 import com.springfinalback.hei.repository.PostRepository;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,14 @@ public class PostService {
     }
 
     public Post savePost(Post post){
-        Post postContent = postRepository.saveAndFlush(post);
+        Post postContent = postRepository.save(post);
         return postContent;
+    }
+
+    public Post addPostByIdUser(Long idUser) {
+        Post post = postRepository.findById(idUser)
+                .orElseThrow(()->new RuntimeException("Transaction with id "+ idUser +" does not exists"));
+        return post;
     }
 
 }

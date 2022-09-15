@@ -1,7 +1,6 @@
 package com.springfinalback.hei.controller;
 
 import com.springfinalback.hei.model.Post;
-import com.springfinalback.hei.repository.PostRepository;
 import com.springfinalback.hei.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +18,9 @@ public class PostController {
         return postService.getPosts();
     }
 
-    @PostMapping(path="/addNewPost")
-    public Post saveNewPost(@RequestBody Post post){
-        Post postContent = postService.savePost(post);
-        return postContent;
+    @PutMapping(path="/posts/{idUser}")
+    public Post addNewPost(@PathVariable Long idUser, @RequestBody Post post){
+        Post postList = postService.addPostByIdUser(idUser);
+        return postList;
     }
 }
